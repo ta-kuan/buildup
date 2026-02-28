@@ -1,0 +1,35 @@
+const config = {
+    type: Phaser.AUTO,
+    width: 400,
+    height: 400,
+    backgroundColor: '#ffffff',
+    scene: {
+        create: create
+    }
+};
+
+const game = new Phaser.Game(config);
+
+function create() {
+    // 1. 四角形を作成 (初期状態は黒: 0x000000)
+    // 引数: x, y, 幅, 高さ, 色
+    let rect = this.add.rectangle(200, 200, 150, 150, 0x000000);
+
+    // 2. 四角形をクリック可能にする
+    rect.setInteractive();
+
+    // 3. クリックイベントの登録
+    rect.on('pointerdown', function () {
+        // 現在の色を確認して切り替える
+        if (rect.fillColor === 0x000000) {
+            // 黒なら赤 (0xff0000) に変更
+            rect.setFillStyle(0xff0000);
+        } else {
+            // 赤なら黒 (0x000000) に戻す
+            rect.setFillStyle(0x000000);
+        }
+    });
+
+    // ガイドテキスト
+    this.add.text(200, 320, '四角をクリックして色を変更', { color: '#666' }).setOrigin(0.5);
+}
