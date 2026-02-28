@@ -1,3 +1,17 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>Phaser Color Switcher</title>
+    <!-- CDNからPhaser 3を読み込み -->
+    <script src="https://cdn.jsdelivr.net"></script>
+    <style>
+        body { margin: 0; display: flex; justify-content: center; align-items: center; height: 100vh; background: #eee; }
+    </style>
+</head>
+<body>
+
+<script>
 const config = {
     type: Phaser.AUTO,
     width: 400,
@@ -33,3 +47,7 @@ function create() {
     // ガイドテキスト
     this.add.text(200, 320, '四角をクリックして色を変更', { color: '#666' }).setOrigin(0.5);
 }
+</script>
+
+</body>
+</html>
