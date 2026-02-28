@@ -1,90 +1,62 @@
 <!DOCTYPE html>
 <html lang="ja">
-<head>
+  <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Phaser 16:9 Fullscreen</title>
-    <!-- 自分のリポジトリにあるファイルを読み込む -->
+    <title>Build Up!</title>
     <script src="phaser.min.js"></script>
     <style>
-        /* 画面の余白を消し、背景を暗くしてゲームを際立たせる */
-        body { 
-            margin: 0; 
-            padding: 0; 
-            background-color: #222; 
-            overflow: hidden; 
-            display: flex; 
-            justify-content: center; 
-            align-items: center; 
-            height: 100vh; 
-        }
+      body { 
+        margin: 0; 
+        padding: 0; 
+        background-color: rgb(0,0,0); 
+        overflow: hidden; 
+        width: 100vw;
+        height: 100vh;
+      }
     </style>
-</head>
-<body>
-
-<script>
-const config = {
-    type: Phaser.AUTO,
-    // ベース解像度を16:9の高画質(1920x1080)に設定
-    width: 1920,
-    height: 1080,
-    backgroundColor: '#ffffff',
-    scale: {
-        // 16:9を維持したまま画面いっぱいに広げる
-        mode: Phaser.Scale.FIT,
-        // 上下左右の中央に配置
-        autoCenter: Phaser.Scale.CENTER_BOTH
-    },
-    scene: {
-        create: create
-    }
-};
-
-const game = new Phaser.Game(config);
-
-function create() {
-    // 画面中央の座標を計算
-    const midX = this.cameras.main.width / 2;
-    const midY = this.cameras.main.height / 2;
-
-    // 1. 四角形を作成（最初は黒）
-    let rect = this.add.rectangle(midX, midY, 350, 350, 0x000000);
-    
-    // 2. クリック可能にする
-    rect.setInteractive();
-
-    // 3. クリックイベント
-    rect.on('pointerdown', () => {
-        // 色の切り替え（黒なら赤、それ以外なら黒）
-        if (rect.fillColor === 0x000000) {
-            rect.setFillStyle(0xff0000);
-        } else {
-            rect.setFillStyle(0x000000);
+  </head>
+  <body>
+    <script>
+      const config = {
+        type: Phaser.AUTO,
+        width: 1920,
+        height: 1080,
+        backgroundColor: '#ffffff',
+        scale: {
+          mode: Phaser.Scale.FIT,
+          autoCenter: Phaser.Scale.CENTER_BOTH
+        },
+        scene: {
+          create: create
         }
-
-        // 高速クリック対策：動いているアニメーションを止めてサイズを戻す
-        this.tweens.killTweensOf(rect);
-        rect.setScale(1);
-
-        // 4. アニメーション（少し大きくして戻す）
-        this.tweens.add({
+      };
+      const game = new Phaser.Game(config);
+      function create() {
+        const midX = this.cameras.main.width / 2;
+        const midY = this.cameras.main.height / 2;
+        let rect = this.add.rectangle(midX, midY, 350, 350, 0x000000);
+        rect.setInteractive();
+        rect.on('pointerdown', () => {
+          rect.fillColor = (rect.fillColor === 0x000000) ? 0xff0000 : 0x000000;
+          this.tweens.killTweensOf(rect);
+          rect.setScale(1);
+          this.tweens.add({
             targets: rect,
             scale: 1.2,
             duration: 100,
             yoyo: true,
             ease: 'Power1'
+          });
         });
-    });
-
-    // ガイドテキスト（画面下部）
-    this.add.text(midX, midY + 300, 'CLICK THE BOX', { 
-        fontSize: '64px', 
-        fontFamily: 'Arial',
-        color: '#999',
-        fontWeight: 'bold'
-    }).setOrigin(0.5);
-}
-</script>
-
-</body>
+        this.add.text(midX, midY + 300, 'CLICK THE BOX', { 
+          fontSize: '64px', 
+          fontFamily: 'Arial',
+          color: '#999',
+          fontWeight: 'bold'
+        }).setOrigin(0.5);
+      }
+    </script>
+  </body>
+</html>
 </html>
