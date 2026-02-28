@@ -1,53 +1,51 @@
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-    <meta charset="UTF-8">
-    <title>Phaser Color Switcher</title>
-    <!-- 自分のリポジトリにあるファイルを読み込む -->
-    <script src="phaser.min.js"></script>
-    <style>
-        body { margin: 0; display: flex; justify-content: center; align-items: center; height: 100vh; background: #eee; }
-    </style>
-</head>
-<body>
-
-<script>
 const config = {
     type: Phaser.AUTO,
-    width: 400,
-    height: 400,
+    // 基本となる解像度（16:9）
+    width: 1920,
+    height: 1080,
     backgroundColor: '#ffffff',
+    scale: {
+        // 画面いっぱいに広げる設定
+        mode: Phaser.Scale.FIT,
+        // 上下左右の中央に配置
+        autoCenter: Phaser.Scale.CENTER_BOTH,
+        // 親要素（body）のサイズに合わせる
+        parent: 'phaser-game',
+        width: 1920,
+        height: 1080
+    },
     scene: { create: create }
 };
 
 const game = new Phaser.Game(config);
 
 function create() {
+    // 画面中央の座標を取得（1920x1080の中央）
+    const midX = this.cameras.main.width / 2;
+    const midY = this.cameras.main.height / 2;
+
     // 四角形を作成
-    let rect = this.add.rectangle(200, 200, 150, 150, 0x000000);
+    let rect = this.add.rectangle(midX, midY, 300, 300, 0x000000);
     rect.setInteractive();
 
     rect.on('pointerdown', () => {
-        // 1. 色の切り替え
-        if (rect.fillColor === 0x000000) {
-            rect.setFillStyle(0xff0000); // 赤
-        } else {
-            rect.setFillStyle(0x000000); // 黒
-        }
-
-        // 2. アニメーション（少し大きくして戻す）
+        // 色の切り替え
+        rect.fillColor = (rect.fillColor === 0x000000) ? 0xff0000 : 0x000000;
+        
+        // 高速クリック対策
+        this.tweens.killTweensOf(rect);
+        rect.setScale(1); 
         this.tweens.add({
             targets: rect,
-            scaleX: 1.2,
-            scaleY: 1.2,
+            scale: 1.2,
             duration: 100,
-            yoyo: true // 元に戻る設定
+            yoyo: true
         });
     });
 
-    this.add.text(200, 320, 'Click to Toggle & Bounce!', { color: '#666' }).setOrigin(0.5);
+    // 16:9であることのガイド
+    this.add.text(midX, midY + 250, '16:9 Full Screen Mode', { 
+        fontSize: '48px', 
+        color: '#666' 
+    }).setOrigin(0.5);
 }
-</script>
-
-</body>
-</html>
