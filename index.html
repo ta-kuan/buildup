@@ -3,51 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <title>Phaser Color Switcher</title>
-    <!-- CDNからPhaser 3を読み込み -->
+    <!-- CORBエラーを回避するために、信頼性の高いcdnjsを使用します -->
     <script src="https://cdnjs.cloudflare.com"></script>
     <style>
-        body { margin: 0; display: flex; justify-content: center; align-items: center; height: 100vh; background: #eee; }
+        body { margin: 0; display: flex; justify-content: center; align-items: center; height: 100vh; background: #f0f0f0; }
     </style>
 </head>
 <body>
 
 <script>
-const config = {
-    type: Phaser.AUTO,
-    width: 400,
-    height: 400,
-    backgroundColor: '#ffffff',
-    scene: {
-        create: create
+// 1. Phaserが読み込まれているかチェック
+if (typeof Phaser === 'undefined') {
+    document.body.innerHTML = '<h1>Phaserの読み込みに失敗しました。ネット接続を確認してください。</h1>';
+} else {
+    const config = {
+        type: Phaser.AUTO,
+        width: 400,
+        height: 400,
+        backgroundColor: '#ffffff',
+        scene: { create: create }
+    };
+
+    const game = new Phaser.Game(config);
+
+    function create() {
+        // 四角形を作成（最初は黒）
+        let rect = this.add.rectangle(200, 200, 150, 150, 0x000000);
+        rect.setInteractive();
+
+        // クリックで色を交互に変える
+        rect.on('pointerdown', function() {
+            if (rect.fillColor === 0x000000) {
+                rect.setFillStyle(0xff0000); // 赤
+            } else {
+                rect.setFillStyle(0x000000); // 黒
+            }
+        });
+
+        this.add.text(200, 320, 'Click the Box', { color: '#666', fontSize: '20px' }).setOrigin(0.5);
     }
-};
-
-const game = new Phaser.Game(config);
-
-function create() {
-    // 1. 四角形を作成 (初期状態は黒: 0x000000)
-    // 引数: x, y, 幅, 高さ, 色
-    let rect = this.add.rectangle(200, 200, 150, 150, 0x000000);
-
-    // 2. 四角形をクリック可能にする
-    rect.setInteractive();
-
-    // 3. クリックイベントの登録
-    rect.on('pointerdown', function () {
-        // 現在の色を確認して切り替える
-        if (rect.fillColor === 0x000000) {
-            // 黒なら赤 (0xff0000) に変更
-            rect.setFillStyle(0xff0000);
-        } else {
-            // 赤なら黒 (0x000000) に戻す
-            rect.setFillStyle(0x000000);
-        }
-    });
-
-    // ガイドテキスト
-    this.add.text(200, 320, '四角をクリックして色を変更', { color: '#666' }).setOrigin(0.5);
 }
 </script>
-
 </body>
 </html>
