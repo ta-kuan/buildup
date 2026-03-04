@@ -35,8 +35,14 @@
         const height = this.scale.height;
     
         // 背景A（赤）
-        let background = this.add.rectangle(0, 0, width, height, 0xff0000)
-          .setOrigin(0);
+        let bgA = this.add.rectangle(0, 0, width, height, 0xff0000)
+          .setOrigin(0)
+          .setAlpha(1);
+    
+        // 背景B（青）最初は透明
+        let bgB = this.add.rectangle(0, 0, width, height, 0x0000ff)
+          .setOrigin(0)
+          .setAlpha(0);
     
         // ボタンA（黄色）
         let buttonA = this.add.rectangle(width / 2 - 100, height / 2, 150, 80, 0xffff00)
@@ -48,20 +54,21 @@
     
         function switchToB() {
     
-          // ボタンを即削除
+          // ボタン削除
           buttonA.destroy();
           buttonB.destroy();
     
-          // 色補間用オブジェクト
-          let colorObject = { value: 0xff0000 };
+          // クロスフェード
+          this.tweens.add({
+            targets: bgA,
+            alpha: 0,
+            duration: 500
+          });
     
           this.tweens.add({
-            targets: colorObject,
-            value: 0x0000ff,   // 青
-            duration: 500,     // 0.5秒
-            onUpdate: function () {
-              background.setFillStyle(Math.floor(colorObject.value));
-            }
+            targets: bgB,
+            alpha: 1,
+            duration: 500
           });
         }
     
