@@ -47,16 +47,26 @@
           .setInteractive();
     
         function switchToB() {
-          // 背景を青に変更
-          background.setFillStyle(0x0000ff);
     
-          // ボタンを削除
+          // ボタンを即削除
           buttonA.destroy();
           buttonB.destroy();
+    
+          // 色補間用オブジェクト
+          let colorObject = { value: 0xff0000 };
+    
+          this.tweens.add({
+            targets: colorObject,
+            value: 0x0000ff,   // 青
+            duration: 500,     // 0.5秒
+            onUpdate: function () {
+              background.setFillStyle(Math.floor(colorObject.value));
+            }
+          });
         }
     
-        buttonA.on('pointerdown', switchToB);
-        buttonB.on('pointerdown', switchToB);
+        buttonA.on('pointerdown', switchToB, this);
+        buttonB.on('pointerdown', switchToB, this);
       }
     </script>
   </body>
