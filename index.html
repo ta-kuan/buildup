@@ -17,64 +17,6 @@
     </style>
   </head>
   <body>
-    <script>
-      const config = {
-        type: Phaser.AUTO,
-        width: window.innerWidth,
-        height: window.innerHeight,
-        scene: {
-          create: create
-        }
-      };
-    
-      const game = new Phaser.Game(config);
-    
-      function create() {
-    
-        const width = this.scale.width;
-        const height = this.scale.height;
-    
-        // 背景A（赤）
-        let bgA = this.add.rectangle(0, 0, width, height, 0xff0000)
-          .setOrigin(0)
-          .setAlpha(1);
-    
-        // 背景B（青）最初は透明
-        let bgB = this.add.rectangle(0, 0, width, height, 0x0000ff)
-          .setOrigin(0)
-          .setAlpha(0);
-    
-        // ボタンA（黄色）
-        let buttonA = this.add.rectangle(width / 2 - 100, height / 2, 150, 80, 0xffff00)
-          .setInteractive();
-    
-        // ボタンB（オレンジ）
-        let buttonB = this.add.rectangle(width / 2 + 100, height / 2, 150, 80, 0xffa500)
-          .setInteractive();
-    
-        function switchToB() {
-    
-          // ボタン削除
-          buttonA.destroy();
-          buttonB.destroy();
-    
-          // クロスフェード
-          this.tweens.add({
-            targets: bgA,
-            alpha: 0,
-            duration: 500
-          });
-    
-          this.tweens.add({
-            targets: bgB,
-            alpha: 1,
-            duration: 500
-          });
-        }
-    
-        buttonA.on('pointerdown', switchToB, this);
-        buttonB.on('pointerdown', switchToB, this);
-      }
-    </script>
+    <script src="script.js"></script>
   </body>
 </html>
