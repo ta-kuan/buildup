@@ -20,7 +20,7 @@ function preload() {
   this.load.image('bgB', 'backb.png');
   this.load.image('btnA', 'buttona.png');
   this.load.image('btnB', 'buttonb.png');
-  this.load.bitmapFont('dot', 'dotfont.png', 'dotfont.fnt', null, { format: 'text' });
+  this.load.bitmapFont('dot', 'dotfont.png', 'dotfont.xml');
 
 }
 
