@@ -47,15 +47,17 @@ function create() {
     .setScale(200 / this.textures.get('btnA').getSourceImage().width)
     .setInteractive();
 
-  let text1 = this.add.text(200,100,'Build',{fontFamily: "DotFont", fontSize: "64px", color: "#ffffff"})
+  let text1 = this.add.bitmapText(200,100,'dot','Build',64)
     .setTint(0x000000);
-  let text2 = this.add.text(300,170,'Up!',{fontFamily: "DotFont", fontSize: "64px", color: "#ffffff"})
+  let text2 = this.add.bitmapText(260,170,'dot','Up!',64)
     .setTint(0x000000);
   
   function switchToB() {
 
     buttonA.destroy();
     buttonB.destroy();
+    text1.destroy();
+    text2.destroy();
 
     this.tweens.add({
       targets: bgA,
