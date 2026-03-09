@@ -39,10 +39,10 @@ function create() {
     .setDisplaySize(width, height)
     .setAlpha(0);
 
-  let buttonA = this.add.rectangle(width / 2 - 150,height / 5 * 4,200,60,0xBBFFFF)
-    .setStrokeStyle(10, 0x10ffff)
+  let buttonA = this.add.rectangle(width / 2 - 150,height / 5 * 4,200,60,0xffffbb)
+    .setStrokeStyle(5, 0xffff10)
     .setInteractive();
-  let texta = this.add.bitmapText(width / 2 - 150,height / 5 * 2,'dot','start',64)
+  let texta = this.add.bitmapText(width / 2 - 150,height / 5 * 4,'dot','start',64)
     .setTint(0x000000);
 
   let buttonB = this.add.image(width / 2 + 150, height / 5 * 4, 'btnB')
