@@ -36,11 +36,11 @@ function create() {
     .setDisplaySize(width, height)
     .setAlpha(0);
 
-  let buttonA = this.add.image(width / 2 - 150, height / 2, 'btnA')
+  let buttonA = this.add.image(width / 2 - 150, height / 5, 'btnA')
     .setScale(200 / this.textures.get('btnA').getSourceImage().width)
     .setInteractive();
 
-  let buttonB = this.add.image(width / 2 + 150, height / 2, 'btnB')
+  let buttonB = this.add.image(width / 2 + 150, height / 5, 'btnB')
     .setScale(200 / this.textures.get('btnA').getSourceImage().width)
     .setInteractive();
 
