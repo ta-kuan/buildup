@@ -33,9 +33,11 @@ function create() {
     .setAlpha(0);
 
   let buttonA = this.add.image(width / 2 - 150, height / 2, 'btnA')
+    .setDisplaySize(30,12)
     .setInteractive();
 
   let buttonB = this.add.image(width / 2 + 150, height / 2, 'btnB')
+    .setDisplaySize(30,12)
     .setInteractive();
 
   function switchToB() {
