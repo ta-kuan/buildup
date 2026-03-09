@@ -39,11 +39,12 @@ function create() {
     .setDisplaySize(width, height)
     .setAlpha(0);
 
-  let buttonA = this.add.rectangle(width / 2 - 150,height / 5 * 4,200,60,0xffffbb)
-    .setStrokeStyle(5, 0xffff10)
-    .setInteractive();
-  let texta = this.add.bitmapText(width / 2 - 150,height / 5 * 4,'dot','start',64)
-    .setTint(0x000000);
+  const buttonA = this.add.rectangle(0,0,200,60,0xffffbb)
+    .setStrokeStyle(5,0xffff10);
+  const texta = this.add.bitmapText(0,0,'dot','start',64)
+    .setOrigin(0.5);
+  const btn = this.add.container(width/2 -150, height/5*4, [buttonA, texta]);
+  buttonA.setInteractive();
 
   let buttonB = this.add.image(width / 2 + 150, height / 5 * 4, 'btnB')
     .setScale(200 / this.textures.get('btnA').getSourceImage().width)
