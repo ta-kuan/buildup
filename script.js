@@ -47,9 +47,11 @@ function create() {
     .setScale(200 / this.textures.get('btnA').getSourceImage().width)
     .setInteractive();
 
-  let text1 = this.add.bitmapText(100,100,'dot','Build',64)
+  let text1 = this.add.bitmapText(200,100,'dot','Build',64)
     .setTint(0x000000);
-
+  let text1 = this.add.bitmapText(260,170,'dot','Up!',64)
+    .setTint(0x000000);
+  
   function switchToB() {
 
     buttonA.destroy();
