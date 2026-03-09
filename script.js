@@ -20,6 +20,7 @@ function preload() {
   this.load.image('bgB', 'backb.png');
   this.load.image('btnA', 'buttona.png');
   this.load.image('btnB', 'buttonb.png');
+  this.load.bitmapFont('dot','font.png','font.fnt');
 }
 
 function create() {
@@ -44,6 +45,14 @@ function create() {
   let buttonB = this.add.image(width / 2 + 150, height / 5 * 4, 'btnB')
     .setScale(200 / this.textures.get('btnA').getSourceImage().width)
     .setInteractive();
+
+  this.add.bitmapText(
+    100,
+    100,
+    'dot',
+    'Build',
+    64
+  );
 
   function switchToB() {
 
