@@ -55,7 +55,7 @@ function create() {
     .setOrigin(0.5)
     .setTint(0x000000);
   const btnb = this.add.container(width/2 +150, height/5*4, [buttonBb,buttonB, textb]);
-  buttonA.setInteractive();
+  buttonB.setInteractive();
 
   function switchToB() {
 
