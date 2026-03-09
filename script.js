@@ -1,4 +1,5 @@
 //game.scene.scenes[0].scene.restart();
+//64-20,48-15
 const config = {
   type: Phaser.AUTO,
   pixelArt: true,
