@@ -22,6 +22,7 @@ function preload() {
   this.load.image('bgB', 'backb.png');
   this.load.image('btnA', 'buttona.png');
   this.load.image('btnB', 'buttonb.png');
+  this.load.image('mod1','mod1.png');
   this.load.bitmapFont('dot', 'dotfont.png', 'dotfont.xml');
 
 }
@@ -73,6 +74,9 @@ function create() {
       alpha: 1,
       duration: 500
     });
+
+    const mod1 = this.add.image(0,0,'mod1')
+      .setOrigin(0.5);
   }
 
   buttonA.on('pointerdown', switchToB, this);
