@@ -31,12 +31,12 @@ function create() {
   const width = this.scale.width;
   const height = this.scale.height;
 
-  let bgA = this.add.image(0, 0, 'bgA')
+  let bgA = this.add.image(0,0,'bgA')
     .setOrigin(0)
     .setDisplaySize(width, height)
     .setAlpha(1);
 
-  let bgB = this.add.image(0, 0, 'bgB')
+  let bgB = this.add.image(0,0,'bgB')
     .setOrigin(0)
     .setDisplaySize(width, height)
     .setAlpha(0);
