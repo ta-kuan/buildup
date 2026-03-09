@@ -75,8 +75,7 @@ function create() {
       duration: 500
     });
 
-    const mod1 = this.add.image(0,0,'mod1')
-      .setOrigin(0.5);
+    const mod1 = this.add.image(width / 2,height / 2,'mod1');
   }
 
   buttonA.on('pointerdown', switchToB, this);
