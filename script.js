@@ -44,7 +44,7 @@ function create() {
   const texta = this.add.bitmapText(0,-20,'dot','Setting',64)
     .setOrigin(0.5)
     .setTint(0x000000);
-  const btn = this.add.container(width/2 -150, height/5*4, [buttonAb,buttonA, texta]);
+  const btna = this.add.container(width/2 -150, height/5*4, [buttonAb,buttonA, texta]);
   buttonA.setInteractive();
 
   const buttonBb = this.add.rectangle(0,0,210,70,0xffff10)
@@ -52,15 +52,13 @@ function create() {
   const textb = this.add.bitmapText(0,-20,'dot','Start',64)
     .setOrigin(0.5)
     .setTint(0x000000);
-  const btn = this.add.container(width/2 +150, height/5*4, [buttonBb,buttonB, textb]);
+  const btnb = this.add.container(width/2 +150, height/5*4, [buttonBb,buttonB, textb]);
   buttonA.setInteractive();
 
   function switchToB() {
 
-    buttonA.destroy();
-    buttonB.destroy();
-    text1.destroy();
-    text2.destroy();
+    btna.destroy();
+    btnb.destroy();
 
     this.tweens.add({
       targets: bgA,
