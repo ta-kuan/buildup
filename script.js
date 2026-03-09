@@ -1,7 +1,11 @@
 const config = {
   type: Phaser.AUTO,
-  width: window.innerWidth,
-  height: window.innerHeight,
+  scale: {
+    mode: Phaser.Scale.FIT,
+    autoCenter: Phaser.Scale.CENTER_BOTH,
+    width: 1280,
+    height: 720
+  },
   scene: {
     preload: preload,
     create: create
@@ -33,11 +37,11 @@ function create() {
     .setAlpha(0);
 
   let buttonA = this.add.image(width / 2 - 150, height / 2, 'btnA')
-    .setDisplaySize(150,60)
+    .setScale(200 / this.textures.get('btnA').getSourceImage().width)
     .setInteractive();
 
   let buttonB = this.add.image(width / 2 + 150, height / 2, 'btnB')
-    .setDisplaySize(150,60)
+    .setScale(200 / this.textures.get('btnA').getSourceImage().width)
     .setInteractive();
 
   function switchToB() {
