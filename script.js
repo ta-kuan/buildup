@@ -40,7 +40,6 @@ function create() {
     .setAlpha(0);
 
   const buttonA = this.add.rectangle(0,0,200,60,0xffffbb)
-    .setStrokeStyle(5,0xffff10);
   const texta = this.add.bitmapText(0,0,'dot','start',64)
     .setOrigin(0.5);
   const btn = this.add.container(width/2 -150, height/5*4, [buttonA, texta]);
