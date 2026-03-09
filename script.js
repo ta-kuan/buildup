@@ -49,7 +49,7 @@ function create() {
 
   let text1 = this.add.bitmapText(200,100,'dot','Build',64)
     .setTint(0x000000);
-  let text1 = this.add.bitmapText(260,170,'dot','Up!',64)
+  let text2 = this.add.bitmapText(260,170,'dot','Up!',64)
     .setTint(0x000000);
   
   function switchToB() {
