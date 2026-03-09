@@ -41,7 +41,7 @@ function create() {
 
   const buttonAb = this.add.rectangle(0,0,210,70,0xffff10)
   const buttonA = this.add.rectangle(0,0,200,60,0xffffbb)
-  const texta = this.add.bitmapText(0,-20,'dot','Setting',64)
+  const texta = this.add.bitmapText(0,-20,'dot','Setting',48)
     .setOrigin(0.5)
     .setTint(0x000000);
   const btna = this.add.container(width/2 -150, height/5*4, [buttonAb,buttonA, texta]);
@@ -49,7 +49,7 @@ function create() {
 
   const buttonBb = this.add.rectangle(0,0,210,70,0xffff10)
   const buttonB = this.add.rectangle(0,0,200,60,0xffffbb)
-  const textb = this.add.bitmapText(0,-20,'dot','Start',64)
+  const textb = this.add.bitmapText(0,-20,'dot','Start',48)
     .setOrigin(0.5)
     .setTint(0x000000);
   const btnb = this.add.container(width/2 +150, height/5*4, [buttonBb,buttonB, textb]);
