@@ -39,7 +39,7 @@ function create() {
     .setDisplaySize(width, height)
     .setAlpha(0);
 
-  const buttonAb = this.add.rectangle(0,0,200,60,0xffff10)
+  const buttonAb = this.add.rectangle(0,0,210,70,0xffff10)
   const buttonA = this.add.rectangle(0,0,200,60,0xffffbb)
   const texta = this.add.bitmapText(0,0,'dot','start',64)
     .setOrigin(0.5)
