@@ -41,21 +41,20 @@ function create() {
 
   const buttonAb = this.add.rectangle(0,0,210,70,0xffff10)
   const buttonA = this.add.rectangle(0,0,200,60,0xffffbb)
-  const texta = this.add.bitmapText(0,-20,'dot','start',64)
+  const texta = this.add.bitmapText(0,-20,'dot','Setting',64)
     .setOrigin(0.5)
     .setTint(0x000000);
   const btn = this.add.container(width/2 -150, height/5*4, [buttonAb,buttonA, texta]);
   buttonA.setInteractive();
 
-  let buttonB = this.add.image(width / 2 + 150, height / 5 * 4, 'btnB')
-    .setScale(200 / this.textures.get('btnA').getSourceImage().width)
-    .setInteractive();
+  const buttonBb = this.add.rectangle(0,0,210,70,0xffff10)
+  const buttonB = this.add.rectangle(0,0,200,60,0xffffbb)
+  const textb = this.add.bitmapText(0,-20,'dot','Start',64)
+    .setOrigin(0.5)
+    .setTint(0x000000);
+  const btn = this.add.container(width/2 +150, height/5*4, [buttonBb,buttonB, textb]);
+  buttonA.setInteractive();
 
-  let text1 = this.add.bitmapText(200,100,'dot','Build',64)
-    .setTint(0x000000);
-  let text2 = this.add.bitmapText(260,170,'dot','Up!',64)
-    .setTint(0x000000);
-  
   function switchToB() {
 
     buttonA.destroy();
