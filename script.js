@@ -47,7 +47,7 @@ function create() {
     .setScale(200 / this.textures.get('btnA').getSourceImage().width)
     .setInteractive();
 
-  let text1 = this.add.text(200,100,'Build',{fontFamily: "Dotfont", fontSize: "64px", color: "#ffffff"})
+  let text1 = this.add.text(200,100,'Build',{fontFamily: "DotFont", fontSize: "64px", color: "#ffffff"})
     .setTint(0x000000);
   let text2 = this.add.text(300,170,'Up!',{fontFamily: "DotFont", fontSize: "64px", color: "#ffffff"})
     .setTint(0x000000);
