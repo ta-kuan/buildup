@@ -18,11 +18,11 @@ const config = {
 const game = new Phaser.Game(config);
 
 function preload() {
-  this.load.image('bgA', 'backr.png');
-  this.load.image('bgB', 'backb.png');
-  this.load.image('btnA', 'buttona.png');
-  this.load.image('btnB', 'buttonb.png');
-  this.load.image('mod1','mod1.png');
+  this.load.image('bgA', 'image/backr.png');
+  this.load.image('bgB', 'image/backb.png');
+  this.load.image('btnA', 'image/buttona.png');
+  this.load.image('btnB', 'image/buttonb.png');
+  this.load.image('mod1','image/mod1.png');
   this.load.bitmapFont('dot', 'dotfont.png', 'dotfont.xml');
 
 }
